@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/alumnos', 'AlumnosController@index');
+Route::get('/cursos', 'CursosController@index');
+Route::get('/colegio', 'AlumnosCursosController@index');
