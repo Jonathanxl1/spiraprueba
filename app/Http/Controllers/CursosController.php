@@ -15,7 +15,7 @@ class CursosController extends Controller
     public function index(Cursos $cursos)
     {
         // return $cursos->all();
-       $curso = $cursos::with('Alumnos')->where('id_curso','=',2)->get();
+       $curso = $cursos->get();
       return $curso;
     }
 
@@ -24,9 +24,10 @@ class CursosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function alumnos(Cursos $cursos)
     {
-        //
+        $curso=$cursos->with('Alumnos')->select('name_course as Curso')->get();
+        return $curso;
     }
 
     /**
